@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Exam</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/formm.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<br>
+    <header> RESULTS: 
+     You have scored <b><p id="demo"></p></b> in <b>{{sub}}</b> out of <b>10</b>    .</br></br> </p>
+     </header>
+	<div class="container">
+    
+<br><br><br>
+            {% csrf_token %}
+
+			
+			
+		<a href="{% url 'mains' %}">
+		<button type="submit" value="CHECK MARKS">HOME</button>
+		</a>
+		<a href="{% url 'logout' %}">
+		<button type="submit" value="LOGOUT" href>LOGOUT</button>
+		</a><br>
+        <p>NOTE: Refresh before you start a new test</p>
+    </div>
+    <script>
+        var count = sessionStorage.getItem("Count");
+        count=Number(count)
+        console.log(count)
+        document.getElementById("demo").innerHTML = count;
+    </script>
+</body>
+</html>
